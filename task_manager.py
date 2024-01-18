@@ -376,18 +376,18 @@ while not logged_in:
         logged_in = True
 
 
-while True:
-    # presenting the menu to the user and 
+while True and curr_user == 'admin':
+    # presenting the menu to the admin and 
     # making sure that the user input is converted to lower case.
     print()
     menu = input('''Select one of the following Options below:
-r - Registering a user
-a - Adding a task
-va - View all tasks
-vm - View my task
+r - register a user
+a - add task
+va - view all tasks
+vm - view my tasks
 gr - generate reports
-ds - Display statistics
-e - Exit
+ds - display statistics
+e - exit
 : ''').lower()
 
     if menu == 'r':
@@ -464,4 +464,32 @@ e - Exit
         exit()
 
     else:
-        print("You have made a wrong choice, Please Try again")
+        print("You have made a wrong choice. Please try again")
+
+while True:
+    
+    # presenting the menu to the user and 
+    # making sure that the user input is converted to lower case.
+    print()
+    menu = input('''Select one of the following Options below:
+a - add task
+va - view all tasks
+vm - view my tasks
+e - exit
+: ''').lower()
+
+    if menu == 'a':
+        add_task()
+
+    elif menu == 'va':
+        view_all()
+
+    elif menu == 'vm':
+        view_mine()
+
+    elif menu == 'e':
+        print('Goodbye!!!')
+        exit()
+
+    else:
+        print("You have made a wrong choice. Please try again.")
