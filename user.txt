@@ -1,0 +1,3 @@
+admin;password
+loizoud;tr0users
+fosterm;sunfl0wer

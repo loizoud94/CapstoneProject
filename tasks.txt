@@ -1,0 +1,4 @@
+admin;Add the first task;Assign it to thyself;2023-12-15;2023-12-14;Yes
+admin;Add functionality to task manager;Add additional options and refactor the code.;2022-11-22;2023-12-14;Yes
+loizoud;An extra task, why not?;this was accidentally added;2023-12-29;2023-12-14;No
+loizoud;loizoud's first task;loizoud;2023-12-11;2023-12-14;No
