@@ -17,34 +17,38 @@ DATETIME_STRING_FORMAT = "%Y-%m-%d"
 #=====defining functions============
 
 def reg_user():
-    '''Add a new user to the user.txt file'''
-    # - Request input of a new username
-    new_username = input("New Username: ")
-
-    # - prevent duplicate usernames
-    while new_username in username_password.keys():
-        new_username = input("Sorry. That username is already taken. Please choose another: ")
-
-    # - Request input of a new password
-    new_password = input("New Password: ")
-
-    # - Request input of password confirmation.
-    confirm_password = input("Confirm Password: ")
-
-    # - Check if the new password and confirmed password are the same.
-    if new_password == confirm_password:
-        # - If they are the same, add them to the user.txt file,
-        print("New user added")
-        username_password[new_username] = new_password
-            
-        with open("user.txt", "w") as out_file:
-            user_data = []
-            for k in username_password:
-                user_data.append(f"{k};{username_password[k]}")
-            out_file.write("\n".join(user_data))
+    # restrict permissions
+    if curr_user != 'admin':
+        print("Sorry, you do not have permission to execute this action.")
     
     else:
-        print("Passwords do not match. Unable to add new user. Enter 'r' to try again.") # improved output message
+        # - Request input of a new username
+        new_username = input("New Username: ")
+
+        # - prevent duplicate usernames
+        while new_username in username_password.keys():
+            new_username = input("Sorry. That username is already taken. Please choose another: ")
+
+        # - Request input of a new password
+        new_password = input("New Password: ")
+
+        # - Request input of password confirmation.
+        confirm_password = input("Confirm Password: ")
+
+        # - Check if the new password and confirmed password are the same.
+        if new_password == confirm_password:
+            # - If they are the same, add them to the user.txt file,
+            print("New user added")
+            username_password[new_username] = new_password
+                
+            with open("user.txt", "w") as out_file:
+                user_data = []
+                for k in username_password:
+                    user_data.append(f"{k};{username_password[k]}")
+                out_file.write("\n".join(user_data))
+        
+        else:
+            print("Passwords do not match. Unable to add new user. Enter 'r' to try again.") # improved output message
 
 def add_task():
     '''Allow a user to add a new task to task.txt file
